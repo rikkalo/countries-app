@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+
+import RegionsPage from '../src/pages/RegionsPage';
+import CountriesPage from '../src/pages/CountriesPage';
+import CountryPage from '../src/pages/CountryPage';
+
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <RegionsPage />
+        </Route>  
+        <Route path="/сountries">
+          <CountriesPage />
+        </Route>
+        <Route path="/сountry">
+          <CountryPage />
+        </Route>  
+        <Route path="*">
+          404
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
