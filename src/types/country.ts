@@ -16,10 +16,10 @@ export interface Translation {
 }
 
 export interface RegionalBloc {
-    acronym: string;
-    name: string;
-    otherAcronyms: string[];
-    otherNames: string[];
+    acronym?: string;
+    name?: string;
+    otherAcronyms?: string[];
+    otherNames?: string[];
 }
 
 export interface Country {
@@ -36,7 +36,7 @@ export interface Country {
     latlng: number[];
     demonym: string;
     area: number;
-    gini: number;
+    gini?: number;
     timezones: string[];
     borders: string[];
     nativeName: string;
