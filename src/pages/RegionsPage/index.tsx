@@ -1,13 +1,15 @@
-import React from 'react';
-import { Link as RouterLink} from 'react-router-dom';
-import { Typography, Container, List, ListItem, Link } from '@material-ui/core';
+import { Container, Link, List, ListItem, Typography } from "@material-ui/core";
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const RegionsPage: React.FC = () => {
   return (
     <Container maxWidth="sm">
-      <Typography variant="h2" component="h2">Regions</Typography>
+      <Typography variant="h2" component="h2">
+        Regions
+      </Typography>
       <List>
         {regions.map(region => (
           <ListItem key={region}>
@@ -21,5 +23,5 @@ const RegionsPage: React.FC = () => {
       </List>
     </Container>
   );
-}
+};
 export default RegionsPage;

@@ -24,10 +24,21 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "eslint --fix --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "eslint:recommended",
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["simple-import-sort"],
+    "rules": {
+      "prettier/prettier": "error",
+      "simple-import-sort/sort": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -40,5 +51,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@will-stone/prettier-config": "^2.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.0",
+    "prettier": "^1.19.1"
   }
 }

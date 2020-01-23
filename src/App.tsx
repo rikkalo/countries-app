@@ -1,15 +1,11 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from "react-router-dom";
+import "./App.css";
 
-import RegionsPage from '../src/pages/RegionsPage';
-import CountriesPage from '../src/pages/CountriesPage';
-import CountryPage from '../src/pages/CountryPage';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import './App.css';
+import CountriesPage from "../src/pages/CountriesPage";
+import CountryPage from "../src/pages/CountryPage";
+import RegionsPage from "../src/pages/RegionsPage";
 
 const App: React.FC = () => {
   return (
@@ -17,19 +13,17 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path="/">
           <RegionsPage />
-        </Route>  
+        </Route>
         <Route path="/сountries">
           <CountriesPage />
         </Route>
         <Route path="/сountry">
           <CountryPage />
-        </Route>  
-        <Route path="*">
-          404
         </Route>
+        <Route path="*">404</Route>
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
