@@ -1,8 +1,6 @@
 import {
   Container,
   Link,
-  List,
-  ListItem,
   Paper,
   Table,
   TableBody,
@@ -18,12 +16,16 @@ import React, { useEffect, useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
 import { fetchCountriesList } from "../../api";
+import { OrderBy, Sort } from "../../types/common";
 import { Country } from "../../types/country";
+import { getSorting } from "../../utils";
 
 const CountriesPage: React.FC = () => {
   const { search } = useLocation<string>();
   const [сountries, setCountries] = useState<Country[]>([]);
   const [error, setErrorResponse] = useState<string | null>(null);
+  const [order, setOrder] = useState<Sort>("asc");
+  const [orderBy, setOrderBy] = useState<OrderBy>("name");
 
   useEffect(() => {
     const params = new URLSearchParams(search) as URLSearchParams;
@@ -31,12 +33,20 @@ const CountriesPage: React.FC = () => {
 
     async function fetchCountries(): Promise<void> {
       const result = await fetchCountriesList(region);
+
       setCountries(result.data);
       setErrorResponse(result.error);
     }
 
     fetchCountries();
   }, [search]);
+
+  const handleSortRequest = (property: any) => {
+    let orderBy = property;
+
+    setOrder(order === "desc" ? "asc" : "desc");
+    setOrderBy(orderBy);
+  };
 
   return (
     <>
@@ -56,12 +66,28 @@ const CountriesPage: React.FC = () => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableSortLabel>Name</TableSortLabel>
-                  <TableSortLabel>Population</TableSortLabel>
+                  <TableCell component="th" scope="row">
+                    <TableSortLabel
+                      active={orderBy === "name"}
+                      direction={order}
+                      onClick={() => handleSortRequest("name")}
+                    >
+                      Name
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell align="right">
+                    <TableSortLabel
+                      active={orderBy === "population"}
+                      direction={order}
+                      onClick={() => handleSortRequest("population")}
+                    >
+                      Population
+                    </TableSortLabel>
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {сountries.map(country => (
+                {сountries.sort(getSorting(order, orderBy)).map(country => (
                   <TableRow key={country.name}>
                     <TableCell component="th" scope="row">
                       <Link
