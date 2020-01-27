@@ -1,15 +1,12 @@
-import {
-  CardMedia,
-  Container,
-  List,
-  ListItem,
-  Typography
-} from "@material-ui/core";
+import { Container, List, ListItem } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { fetchCountryInfo } from "../../api";
+import { CountryCommonInfo } from "../../components/CountryCommonInfo";
+import { GoToMain } from "../../components/GoToMain";
+import { ListWithTitle } from "../../components/ListWithTitle";
 import { Country } from "../../types/country";
 
 const CountryPage: React.FC = () => {
@@ -37,122 +34,49 @@ const CountryPage: React.FC = () => {
     <>
       {error ? <Alert severity="error">Status error: {error}</Alert> : null}
       {error ? (
-        <Container maxWidth="sm">
-          <Typography variant="h3" component="h3">
-            <Link to="/">Go to the main page</Link>
-          </Typography>
-        </Container>
+        <GoToMain />
       ) : (
         <Container maxWidth="sm">
-          <Typography variant="h3" component="h3">
-            {сountry && сountry.name}
-          </Typography>
-          <CardMedia
-            component="img"
-            height="140"
-            image={(сountry && сountry.flag) || undefined}
-            title="Flag"
-          />
-          <Typography variant="h6" component="h6">
-            Top level domain: {сountry && сountry.topLevelDomain[0]}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            ISO 3166-1 alpha-2: {сountry && сountry.alpha2Code}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            ISO 3166-1 alpha-3: {сountry && сountry.alpha3Code}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Capital: {сountry && сountry.capital}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Region: {сountry && сountry.region}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Subregion: {сountry && сountry.subregion}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Population: {сountry && сountry.population}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Demonym: {сountry && сountry.demonym}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Native name: {сountry && сountry.nativeName}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Numeric code: {сountry && сountry.numericCode}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Area: {сountry && сountry.area}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Coordinates: {сountry && сountry.latlng[0]},{" "}
-            {сountry && сountry.latlng[1]}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Gini coefficient: {сountry && сountry.gini}
-          </Typography>
-          <Typography variant="h6" component="h6">
-            Cioc: {сountry && сountry.cioc}
-          </Typography>
+          {сountry && <CountryCommonInfo сountry={сountry} />}
 
-          <Typography variant="h5" component="h5">
-            Currencies:
-          </Typography>
-          <List>
+          <ListWithTitle title="Currencies">
             {сountry &&
               сountry.currencies.map(currency => (
                 <ListItem key={currency.code}>
                   {currency.code}, {currency.name} {currency.symbol}
                 </ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Timezones:
-          </Typography>
-          <List>
+          <ListWithTitle title="Timezones">
             {сountry &&
               сountry.timezones.map(timezone => (
                 <ListItem key={timezone}>{timezone}</ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Borders:
-          </Typography>
-          <List>
+          <ListWithTitle title="Borders">
             {сountry &&
               сountry.borders.map(border => (
                 <ListItem key={border}>{border}</ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Calling Codes:
-          </Typography>
-          <List>
+          <ListWithTitle title="Calling Codes">
             {сountry &&
               сountry.callingCodes.map(code => (
                 <ListItem key={code}> +{code}</ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Alternative spelling:
-          </Typography>
-          <List>
+          <ListWithTitle title="Alternative spelling">
             {сountry &&
               сountry.altSpellings.map(spelling => (
                 <ListItem key={spelling}>{spelling}</ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Languages:
-          </Typography>
-          <List>
+          <ListWithTitle title="Languages">
             {сountry &&
               сountry.languages.map(language => (
                 <ListItem key={language.name}>
@@ -164,12 +88,9 @@ const CountryPage: React.FC = () => {
                   </List>
                 </ListItem>
               ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Translations:
-          </Typography>
-          <List>
+          <ListWithTitle title="Translations">
             {сountry &&
               Object.keys(сountry.translations)
                 .filter(key => сountry && сountry.translations[key])
@@ -178,12 +99,9 @@ const CountryPage: React.FC = () => {
                     {key.toUpperCase()}: {сountry && сountry.translations[key]}
                   </ListItem>
                 ))}
-          </List>
+          </ListWithTitle>
 
-          <Typography variant="h5" component="h5">
-            Regional blocs:
-          </Typography>
-          <List>
+          <ListWithTitle title="Regional blocs">
             {сountry &&
               сountry.regionalBlocs.map(block => (
                 <ListItem key={block.name}>
@@ -205,7 +123,7 @@ const CountryPage: React.FC = () => {
                   </List>
                 </ListItem>
               ))}
-          </List>
+          </ListWithTitle>
         </Container>
       )}
     </>
