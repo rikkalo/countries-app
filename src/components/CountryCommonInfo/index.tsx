@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 
 import { Country } from "../../types/country";
@@ -44,22 +44,44 @@ export const CountryCommonInfo: React.FC<Props> = props => {
   const { сountry } = props;
 
   return (
-    <>
-      <Typography variant="h3" component="h3">
-        {сountry.name}
-      </Typography>
-      {сountry.flag && <Flag value={сountry.flag} />}
-      <Typography variant="h6" component="h6">
-        Top level domain: {сountry.topLevelDomain[0]}
-      </Typography>
-      <Typography variant="h6" component="h6">
-        Coordinates: {сountry.latlng[0]}, {сountry.latlng[1]}
-      </Typography>
-      {items.map(item => (
-        <Typography key={item.field} variant="h6" component="h6">
-          {item.title}: {сountry[item.field]}
+    <Grid container spacing={3}>
+      <Grid item md={12} xs={12}>
+        <Typography variant="h3" component="h3">
+          {сountry.name}
         </Typography>
-      ))}
-    </>
+      </Grid>
+      <Grid item md={6} xs={12}>
+        {сountry.flag && <Flag value={сountry.flag} />}
+      </Grid>
+      <Grid item md={6} xs={12}>
+        <div>
+          <Typography variant="subtitle1" component="span" color="textPrimary">
+            Top level domain:&nbsp;
+          </Typography>
+          <Typography variant="subtitle2" component="span">
+            {сountry.topLevelDomain[0]}
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="subtitle1" component="span" color="textPrimary">
+            Coordinates:&nbsp;
+          </Typography>
+          <Typography variant="subtitle2" component="span">
+            {сountry.latlng[0]}, {сountry.latlng[1]}
+          </Typography>
+        </div>
+
+        {items.map(item => (
+          <div key={item.title}>
+            <Typography variant="subtitle1" component="span">
+              {item.title}:&nbsp;
+            </Typography>
+            <Typography variant="subtitle2" component="span">
+              {сountry[item.field]}
+            </Typography>
+          </div>
+        ))}
+      </Grid>
+    </Grid>
   );
 };

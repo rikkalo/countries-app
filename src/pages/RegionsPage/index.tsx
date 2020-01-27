@@ -6,7 +6,7 @@ const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const RegionsPage: React.FC = () => {
   return (
-    <Container maxWidth="sm">
+    <Container>
       <Typography variant="h2" component="h2">
         Regions
       </Typography>

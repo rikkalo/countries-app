@@ -33,7 +33,7 @@ const CountriesPage: React.FC = () => {
       {error ? (
         <GoToMain />
       ) : (
-        <Container maxWidth="sm">
+        <Container>
           <Typography variant="h2" component="h2">
             Countries
           </Typography>

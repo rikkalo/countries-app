@@ -1,6 +1,8 @@
 import { CardMedia } from "@material-ui/core";
 import React from "react";
 
+import styles from "./style.module.css";
+
 interface Props {
   value: string;
 }
@@ -10,7 +12,7 @@ export const Flag: React.FC<Props> = props => {
   return (
     <CardMedia
       component="img"
-      height="500"
+      className={styles.card}
       image={value || undefined}
       title="Flag"
     />

@@ -36,7 +36,7 @@ const CountryPage: React.FC = () => {
       {error ? (
         <GoToMain />
       ) : (
-        <Container maxWidth="sm">
+        <Container>
           {сountry && <CountryCommonInfo сountry={сountry} />}
 
           <ListWithTitle title="Currencies">
