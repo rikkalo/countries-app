@@ -1,7 +1,8 @@
-import { CardMedia, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React from "react";
 
 import { Country } from "../../types/country";
+import { Flag } from "../Flag";
 
 interface Props {
   сountry: Country;
@@ -47,12 +48,7 @@ export const CountryCommonInfo: React.FC<Props> = props => {
       <Typography variant="h3" component="h3">
         {сountry.name}
       </Typography>
-      <CardMedia
-        component="img"
-        height="140"
-        image={сountry.flag || undefined}
-        title="Flag"
-      />
+      {сountry.flag && <Flag value={сountry.flag} />}
       <Typography variant="h6" component="h6">
         Top level domain: {сountry.topLevelDomain[0]}
       </Typography>

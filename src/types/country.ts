@@ -47,4 +47,5 @@ export interface Country {
   flag: string;
   regionalBlocs: RegionalBloc[];
   cioc: string;
+  density: number;
 }

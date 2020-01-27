@@ -1,39 +1,34 @@
 import axios from "axios";
 
-export async function fetchCountriesList(region: string): Promise<any> {
-  let result = {
-    data: [],
-    error: null
-  };
+import { Country } from "../types/country";
+import { getDensity } from "../utils";
 
+export async function fetchCountriesList(
+  region: string
+): Promise<{ data: Country[]; error: string | null }> {
   try {
     const response = await axios(
       `https://restcountries.eu/rest/v2/region/${region}`
     );
 
-    result.data = response.data;
-  } catch (error) {
-    result.error = error.response.status;
-  }
+    const countries = getDensity(response.data);
 
-  return result;
+    return { data: countries, error: null };
+  } catch (error) {
+    return { data: [], error: error.response.status };
+  }
 }
 
-export async function fetchCountryInfo(countryName: string): Promise<any> {
-  let result = {
-    data: null,
-    error: null
-  };
-
+export async function fetchCountryInfo(
+  countryName: string
+): Promise<{ data: Country | null; error: string | null }> {
   try {
     const response = await axios(
       `https://restcountries.eu/rest/v2/name/${countryName.toLowerCase()}?fullText=true`
     );
 
-    result.data = response.data[0];
+    return { data: response.data[0], error: null };
   } catch (error) {
-    result.error = error.response.status;
+    return { data: null, error: error.response.status };
   }
-
-  return result;
 }

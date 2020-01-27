@@ -1,3 +1,3 @@
-export type OrderBy = "name" | "population";
+export type OrderBy = "name" | "density";
 
 export type Sort = "asc" | "desc" | undefined;

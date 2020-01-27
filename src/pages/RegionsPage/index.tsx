@@ -24,4 +24,5 @@ const RegionsPage: React.FC = () => {
     </Container>
   );
 };
+
 export default RegionsPage;

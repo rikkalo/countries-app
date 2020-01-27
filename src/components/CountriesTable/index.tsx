@@ -14,7 +14,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { OrderBy, Sort } from "../../types/common";
 import { Country } from "../../types/country";
-import { getSorting } from "../../utils";
+import { getSortedRows } from "../../utils";
 
 interface Props {
   сountries: Country[];
@@ -48,17 +48,17 @@ export const CountriesTable: React.FC<Props> = props => {
             </TableCell>
             <TableCell align="right">
               <TableSortLabel
-                active={orderBy === "population"}
+                active={orderBy === "density"}
                 direction={order}
-                onClick={() => handleSortRequest("population")}
+                onClick={() => handleSortRequest("density")}
               >
-                Population
+                Density
               </TableSortLabel>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {сountries.sort(getSorting(order, orderBy)).map(country => (
+          {сountries.sort(getSortedRows(order, orderBy)).map((country: any) => (
             <TableRow key={country.name}>
               <TableCell component="th" scope="row">
                 <Link
@@ -68,7 +68,7 @@ export const CountriesTable: React.FC<Props> = props => {
                   {country.name}
                 </Link>
               </TableCell>
-              <TableCell align="right">{country.population}</TableCell>
+              <TableCell align="right">{country.density || "-"}</TableCell>
             </TableRow>
           ))}
         </TableBody>
