@@ -20,7 +20,7 @@ const CountryPage: React.FC = () => {
     const countryName = params.get("name") as string;
 
     async function fetchCountry(): Promise<void> {
-      const result = await fetchCountryInfo(countryName);
+      const result = await fetchCountryInfo(countryName || "");
 
       setCountry(result.data);
       setErrorResponse(result.error);
