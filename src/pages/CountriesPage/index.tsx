@@ -18,18 +18,20 @@ const CountriesPage: React.FC = () => {
     const region = params.get("region") as string;
 
     async function fetchCountries(): Promise<void> {
-      const result = await fetchCountriesList(region);
-
-      setCountries(result.data);
-      setErrorResponse(result.error);
+      try {
+        const result = await fetchCountriesList(region);
+        setCountries(result);
+      } catch (error) {
+        setErrorResponse(error);
+      }
     }
 
     fetchCountries();
-  }, [search]);
+  }, [search, setCountries, setErrorResponse]);
 
   return (
     <>
-      {error ? <Alert severity="error">Status error: {error}</Alert> : null}
+      {error && <Alert severity="error">Status error: {error}</Alert>}
       {error ? (
         <GoToMain />
       ) : (

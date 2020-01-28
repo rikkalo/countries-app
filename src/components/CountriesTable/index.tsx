@@ -14,7 +14,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { OrderBy, Sort } from "../../types/common";
 import { Country } from "../../types/country";
-import { getSortedRows } from "../../utils";
+import { getSortedItems } from "../../utils";
 
 interface Props {
   сountries: Country[];
@@ -25,11 +25,13 @@ export const CountriesTable: React.FC<Props> = props => {
   const [order, setOrder] = useState<Sort>("asc");
   const [orderBy, setOrderBy] = useState<OrderBy>("name");
 
-  const handleSortRequest = (property: any) => {
-    let orderBy = property;
-
-    setOrder(order === "desc" ? "asc" : "desc");
-    setOrderBy(orderBy);
+  const handleSortRequest = (property: OrderBy) => {
+    if (orderBy === property) {
+      setOrder(order === "desc" ? "asc" : "desc");
+    } else {
+      setOrder("asc");
+      setOrderBy(property);
+    }
   };
 
   return (
@@ -58,19 +60,21 @@ export const CountriesTable: React.FC<Props> = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {сountries.sort(getSortedRows(order, orderBy)).map((country: any) => (
-            <TableRow key={country.name}>
-              <TableCell component="th" scope="row">
-                <Link
-                  component={RouterLink}
-                  to={`/сountry?name=${country.name}`}
-                >
-                  {country.name}
-                </Link>
-              </TableCell>
-              <TableCell align="right">{country.density || "-"}</TableCell>
-            </TableRow>
-          ))}
+          {сountries
+            .sort(getSortedItems(order, orderBy))
+            .map((country: any) => (
+              <TableRow key={country.name}>
+                <TableCell component="th" scope="row">
+                  <Link
+                    component={RouterLink}
+                    to={`/сountry?name=${country.name}`}
+                  >
+                    {country.name}
+                  </Link>
+                </TableCell>
+                <TableCell align="right">{country.density || "-"}</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

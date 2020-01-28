@@ -3,6 +3,7 @@ import React from "react";
 
 import { Country } from "../../types/country";
 import { Flag } from "../Flag";
+import styles from "./style.module.css";
 
 interface Props {
   сountry: Country;
@@ -55,32 +56,48 @@ export const CountryCommonInfo: React.FC<Props> = props => {
       </Grid>
       <Grid item md={6} xs={12}>
         <div>
-          <Typography variant="subtitle1" component="span" color="textPrimary">
-            Top level domain:&nbsp;
+          <Typography
+            className={styles.title}
+            variant="subtitle1"
+            component="span"
+            color="textPrimary"
+          >
+            Top level domain:
           </Typography>
           <Typography variant="subtitle2" component="span">
             {сountry.topLevelDomain[0]}
           </Typography>
         </div>
         <div>
-          <Typography variant="subtitle1" component="span" color="textPrimary">
-            Coordinates:&nbsp;
+          <Typography
+            className={styles.title}
+            variant="subtitle1"
+            component="span"
+            color="textPrimary"
+          >
+            Coordinates:
           </Typography>
           <Typography variant="subtitle2" component="span">
             {сountry.latlng[0]}, {сountry.latlng[1]}
           </Typography>
         </div>
 
-        {items.map(item => (
-          <div key={item.title}>
-            <Typography variant="subtitle1" component="span">
-              {item.title}:&nbsp;
-            </Typography>
-            <Typography variant="subtitle2" component="span">
-              {сountry[item.field]}
-            </Typography>
-          </div>
-        ))}
+        {items
+          .filter(item => сountry && сountry[item.field])
+          .map(item => (
+            <div key={item.title}>
+              <Typography
+                className={styles.title}
+                variant="subtitle1"
+                component="span"
+              >
+                {item.title}:
+              </Typography>
+              <Typography variant="subtitle2" component="span">
+                {сountry[item.field]}
+              </Typography>
+            </div>
+          ))}
       </Grid>
     </Grid>
   );

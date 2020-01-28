@@ -20,19 +20,22 @@ const CountryPage: React.FC = () => {
     const countryName = params.get("name") as string;
 
     async function fetchCountry(): Promise<void> {
-      const result = await fetchCountryInfo(countryName || "");
+      try {
+        const result = await fetchCountryInfo(countryName || "");
 
-      setCountry(result.data);
-      setErrorResponse(result.error);
+        setCountry(result);
+      } catch (error) {
+        setErrorResponse(error);
+      }
     }
 
     fetchCountry();
-  }, [search]);
+  }, [search, setCountry, setErrorResponse]);
   /* eslint-enable react-hooks/exhaustive-deps */
 
   return (
     <>
-      {error ? <Alert severity="error">Status error: {error}</Alert> : null}
+      {error && <Alert severity="error">Status error: {error}</Alert>}
       {error ? (
         <GoToMain />
       ) : (
@@ -101,9 +104,9 @@ const CountryPage: React.FC = () => {
                 ))}
           </ListWithTitle>
 
-          <ListWithTitle title="Regional blocs">
-            {сountry &&
-              сountry.regionalBlocs.map(block => (
+          {сountry && сountry.regionalBlocs.length > 0 && (
+            <ListWithTitle title="Regional blocs">
+              {сountry.regionalBlocs.map(block => (
                 <ListItem key={block.name}>
                   <List>
                     <ListItem>Acronym: {block.acronym}</ListItem>
@@ -123,7 +126,8 @@ const CountryPage: React.FC = () => {
                   </List>
                 </ListItem>
               ))}
-          </ListWithTitle>
+            </ListWithTitle>
+          )}
         </Container>
       )}
     </>

@@ -1,34 +1,28 @@
 import axios from "axios";
 
 import { Country } from "../types/country";
-import { getDensity } from "../utils";
+import { getDataWithDensity } from "../utils";
 
-export async function fetchCountriesList(
-  region: string
-): Promise<{ data: Country[]; error: string | null }> {
+export async function fetchCountriesList(region: string): Promise<Country[]> {
   try {
-    const response = await axios(
-      `https://restcountries.eu/rest/v2/region/${region}`
-    );
+    const url = `https://restcountries.eu/rest/v2/region/${region}`;
 
-    const countries = getDensity(response.data);
+    const response = await axios(url);
 
-    return { data: countries, error: null };
+    return getDataWithDensity(response.data);
   } catch (error) {
-    return { data: [], error: error.response.status };
+    throw error.response.status;
   }
 }
 
-export async function fetchCountryInfo(
-  countryName: string
-): Promise<{ data: Country | null; error: string | null }> {
+export async function fetchCountryInfo(countryName: string): Promise<Country> {
   try {
-    const response = await axios(
-      `https://restcountries.eu/rest/v2/name/${countryName.toLowerCase()}?fullText=true`
-    );
+    const url = `https://restcountries.eu/rest/v2/name/${countryName.toLowerCase()}`;
 
-    return { data: response.data[0], error: null };
+    const response = await axios(url, { params: { fullText: true } });
+
+    return response.data[0];
   } catch (error) {
-    return { data: null, error: error.response.status };
+    throw error.response.status;
   }
 }
