@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Flag should render correctly 1`] = `
-<img
-  alt="Flag"
-  className="card"
-  src="https://restcountries.eu/data/asm.svg"
+<WithStyles(ForwardRef(CardMedia))
+  className="flag"
+  component="img"
+  height="140"
+  image="https://restcountries.eu/data/asm.svg"
 />
 `;

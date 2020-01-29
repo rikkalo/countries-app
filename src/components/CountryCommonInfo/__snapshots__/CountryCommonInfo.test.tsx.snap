@@ -23,6 +23,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
     xs={12}
   >
     <Flag
+      name="Botswana"
       value="https://restcountries.eu/data/bwa.svg"
     />
   </WithStyles(ForwardRef(Grid))>

@@ -52,7 +52,7 @@ export const CountryCommonInfo: React.FC<Props> = props => {
         </Typography>
       </Grid>
       <Grid item md={6} xs={12}>
-        {country.flag && <Flag value={country.flag} />}
+        {country.flag && <Flag value={country.flag} name={country.name} />}
       </Grid>
       <Grid item md={6} xs={12}>
         <div>
