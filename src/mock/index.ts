@@ -206,64 +206,6 @@ export const countriesMock = [
 
 export const countriesWithDensityMock = [
   {
-    name: "Algeria",
-    topLevelDomain: [".dz"],
-    alpha2Code: "DZ",
-    alpha3Code: "DZA",
-    callingCodes: ["213"],
-    capital: "Algiers",
-    altSpellings: ["DZ", "Dzayer", "Algérie"],
-    region: "Africa",
-    subregion: "Northern Africa",
-    population: 40400000,
-    latlng: [28, 3],
-    demonym: "Algerian",
-    area: 2381741,
-    gini: 35.3,
-    timezones: ["UTC+01:00"],
-    borders: ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
-    nativeName: "الجزائر",
-    numericCode: "012",
-    currencies: [{ code: "DZD", name: "Algerian dinar", symbol: "د.ج" }],
-    languages: [
-      {
-        iso639_1: "ar",
-        iso639_2: "ara",
-        name: "Arabic",
-        nativeName: "العربية"
-      }
-    ],
-    translations: {
-      de: "Algerien",
-      es: "Argelia",
-      fr: "Algérie",
-      ja: "アルジェリア",
-      it: "Algeria",
-      br: "Argélia",
-      pt: "Argélia",
-      nl: "Algerije",
-      hr: "Alžir",
-      fa: "الجزایر"
-    },
-    flag: "https://restcountries.eu/data/dza.svg",
-    regionalBlocs: [
-      {
-        acronym: "AU",
-        name: "African Union",
-        otherAcronyms: [],
-        otherNames: [
-          "الاتحاد الأفريقي",
-          "Union africaine",
-          "União Africana",
-          "Unión Africana",
-          "Umoja wa Afrika"
-        ]
-      }
-    ],
-    cioc: "ALG",
-    density: 17
-  },
-  {
     name: "Botswana",
     topLevelDomain: [".bw"],
     alpha2Code: "BW",
@@ -283,7 +225,13 @@ export const countriesWithDensityMock = [
     borders: ["NAM", "ZAF", "ZMB", "ZWE"],
     nativeName: "Botswana",
     numericCode: "072",
-    currencies: [{ code: "BWP", name: "Botswana pula", symbol: "P" }],
+    currencies: [
+      {
+        code: "BWP",
+        name: "Botswana pula",
+        symbol: "P"
+      }
+    ],
     languages: [
       {
         iso639_1: "en",
@@ -328,6 +276,70 @@ export const countriesWithDensityMock = [
     cioc: "BOT"
   },
   {
+    name: "Algeria",
+    topLevelDomain: [".dz"],
+    alpha2Code: "DZ",
+    alpha3Code: "DZA",
+    callingCodes: ["213"],
+    capital: "Algiers",
+    altSpellings: ["DZ", "Dzayer", "Algérie"],
+    region: "Africa",
+    subregion: "Northern Africa",
+    population: 40400000,
+    latlng: [28, 3],
+    demonym: "Algerian",
+    area: 2381741,
+    gini: 35.3,
+    timezones: ["UTC+01:00"],
+    borders: ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
+    nativeName: "الجزائر",
+    numericCode: "012",
+    currencies: [
+      {
+        code: "DZD",
+        name: "Algerian dinar",
+        symbol: "د.ج"
+      }
+    ],
+    languages: [
+      {
+        iso639_1: "ar",
+        iso639_2: "ara",
+        name: "Arabic",
+        nativeName: "العربية"
+      }
+    ],
+    translations: {
+      de: "Algerien",
+      es: "Argelia",
+      fr: "Algérie",
+      ja: "アルジェリア",
+      it: "Algeria",
+      br: "Argélia",
+      pt: "Argélia",
+      nl: "Algerije",
+      hr: "Alžir",
+      fa: "الجزایر"
+    },
+    flag: "https://restcountries.eu/data/dza.svg",
+    regionalBlocs: [
+      {
+        acronym: "AU",
+        name: "African Union",
+        otherAcronyms: [],
+        otherNames: [
+          "الاتحاد الأفريقي",
+          "Union africaine",
+          "União Africana",
+          "Unión Africana",
+          "Umoja wa Afrika"
+        ]
+      }
+    ],
+    cioc: "ALG",
+    density: 17
+  },
+  {
     name: "Chad",
     topLevelDomain: [".td"],
     alpha2Code: "TD",
@@ -348,7 +360,11 @@ export const countriesWithDensityMock = [
     nativeName: "Tchad",
     numericCode: "148",
     currencies: [
-      { code: "XAF", name: "Central African CFA franc", symbol: "Fr" }
+      {
+        code: "XAF",
+        name: "Central African CFA franc",
+        symbol: "Fr"
+      }
     ],
     languages: [
       {
@@ -396,53 +412,59 @@ export const countriesWithDensityMock = [
 ];
 
 export const countryMock = {
-  name: "Algeria",
-  topLevelDomain: [".dz"],
-  alpha2Code: "DZ",
-  alpha3Code: "DZA",
-  callingCodes: ["213"],
-  capital: "Algiers",
-  altSpellings: ["DZ", "Dzayer", "Algérie"],
+  name: "Botswana",
+  topLevelDomain: [".bw"],
+  alpha2Code: "BW",
+  alpha3Code: "BWA",
+  callingCodes: ["267"],
+  capital: "Gaborone",
+  altSpellings: ["BW", "Republic of Botswana", "Lefatshe la Botswana"],
   region: "Africa",
-  subregion: "Northern Africa",
-  population: 40400000,
-  latlng: [28, 3],
-  demonym: "Algerian",
-  area: 2381741,
-  gini: 35.3,
-  density: 17,
-  timezones: ["UTC+01:00"],
-  borders: ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
-  nativeName: "الجزائر",
-  numericCode: "012",
+  subregion: "Southern Africa",
+  population: 2141206,
+  latlng: [-22, 24],
+  demonym: "Motswana",
+  area: 582000,
+  gini: 61,
+  density: 4,
+  timezones: ["UTC+02:00"],
+  borders: ["NAM", "ZAF", "ZMB", "ZWE"],
+  nativeName: "Botswana",
+  numericCode: "072",
   currencies: [
     {
-      code: "DZD",
-      name: "Algerian dinar",
-      symbol: "د.ج"
+      code: "BWP",
+      name: "Botswana pula",
+      symbol: "P"
     }
   ],
   languages: [
     {
-      iso639_1: "ar",
-      iso639_2: "ara",
-      name: "Arabic",
-      nativeName: "العربية"
+      iso639_1: "en",
+      iso639_2: "eng",
+      name: "English",
+      nativeName: "English"
+    },
+    {
+      iso639_1: "tn",
+      iso639_2: "tsn",
+      name: "Tswana",
+      nativeName: "Setswana"
     }
   ],
   translations: {
-    de: "Algerien",
-    es: "Argelia",
-    fr: "Algérie",
-    ja: "アルジェリア",
-    it: "Algeria",
-    br: "Argélia",
-    pt: "Argélia",
-    nl: "Algerije",
-    hr: "Alžir",
-    fa: "الجزایر"
+    de: "Botswana",
+    es: "Botswana",
+    fr: "Botswana",
+    ja: "ボツワナ",
+    it: "Botswana",
+    br: "Botsuana",
+    pt: "Botsuana",
+    nl: "Botswana",
+    hr: "Bocvana",
+    fa: "بوتسوانا"
   },
-  flag: "https://restcountries.eu/data/dza.svg",
+  flag: "https://restcountries.eu/data/bwa.svg",
   regionalBlocs: [
     {
       acronym: "AU",
@@ -457,7 +479,7 @@ export const countryMock = {
       ]
     }
   ],
-  cioc: "ALG"
+  cioc: "BOT"
 };
 
 export const countriesWithAreaNullMock = [

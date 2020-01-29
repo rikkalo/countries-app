@@ -35,7 +35,7 @@ export const CountriesTable: React.FC<Props> = props => {
   };
 
   return (
-    <TableContainer data-testid="table-country" component={Paper}>
+    <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>

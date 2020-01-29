@@ -31,11 +31,15 @@ const CountriesPage: React.FC = () => {
 
   return (
     <>
-      {error && <Alert severity="error">Status error: {error}</Alert>}
+      {error && (
+        <Alert data-testid="error-message" severity="error">
+          Status error: {error}
+        </Alert>
+      )}
       {error ? (
-        <GoToMain />
+        <GoToMain testId="go-to-main-page" />
       ) : (
-        <Container>
+        <Container data-testid="countries-list">
           <Typography variant="h2" component="h2">
             Countries
           </Typography>

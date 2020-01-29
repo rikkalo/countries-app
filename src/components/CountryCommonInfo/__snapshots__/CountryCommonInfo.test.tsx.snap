@@ -14,7 +14,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
       component="h3"
       variant="h3"
     >
-      Algeria
+      Botswana
     </WithStyles(ForwardRef(Typography))>
   </WithStyles(ForwardRef(Grid))>
   <WithStyles(ForwardRef(Grid))
@@ -23,7 +23,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
     xs={12}
   >
     <Flag
-      value="https://restcountries.eu/data/dza.svg"
+      value="https://restcountries.eu/data/bwa.svg"
     />
   </WithStyles(ForwardRef(Grid))>
   <WithStyles(ForwardRef(Grid))
@@ -44,7 +44,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        .dz
+        .bw
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div>
@@ -60,9 +60,9 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        28
+        -22
         , 
-        3
+        24
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -80,7 +80,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        DZ
+        BW
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -98,7 +98,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        DZA
+        BWA
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -116,7 +116,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        Algiers
+        Gaborone
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -152,7 +152,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        Northern Africa
+        Southern Africa
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -170,7 +170,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        40400000
+        2141206
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -188,7 +188,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        Algerian
+        Motswana
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -206,7 +206,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        الجزائر
+        Botswana
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -224,7 +224,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        012
+        072
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -242,7 +242,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        2381741
+        582000
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -260,7 +260,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        35.3
+        61
       </WithStyles(ForwardRef(Typography))>
     </div>
     <div
@@ -278,7 +278,7 @@ exports[`CountryCommonInfo should render correctly 1`] = `
         component="span"
         variant="subtitle2"
       >
-        ALG
+        BOT
       </WithStyles(ForwardRef(Typography))>
     </div>
   </WithStyles(ForwardRef(Grid))>
