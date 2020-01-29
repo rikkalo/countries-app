@@ -35,12 +35,16 @@ const CountryPage: React.FC = () => {
 
   return (
     <>
-      {error && <Alert severity="error">Status error: {error}</Alert>}
+      {error && (
+        <Alert data-testid="error-message" severity="error">
+          Status error: {error}
+        </Alert>
+      )}
       {error ? (
-        <GoToMain />
+        <GoToMain testId="go-to-main-page" />
       ) : (
-        <Container>
-          {сountry && <CountryCommonInfo сountry={сountry} />}
+        <Container data-testid="country-info">
+          {сountry && <CountryCommonInfo country={сountry} />}
 
           <ListWithTitle title="Currencies">
             {сountry &&

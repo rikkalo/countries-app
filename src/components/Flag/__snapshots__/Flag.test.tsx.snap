@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flag should render correctly 1`] = `
+<img
+  alt="Flag"
+  className="card"
+  src="https://restcountries.eu/data/asm.svg"
+/>
+`;

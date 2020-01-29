@@ -17,11 +17,11 @@ import { Country } from "../../types/country";
 import { getSortedItems } from "../../utils";
 
 interface Props {
-  сountries: Country[];
+  countries: Country[];
 }
 
 export const CountriesTable: React.FC<Props> = props => {
-  const { сountries } = props;
+  const { countries } = props;
   const [order, setOrder] = useState<Sort>("asc");
   const [orderBy, setOrderBy] = useState<OrderBy>("name");
 
@@ -35,7 +35,7 @@ export const CountriesTable: React.FC<Props> = props => {
   };
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer data-testid="table-country" component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
@@ -60,14 +60,14 @@ export const CountriesTable: React.FC<Props> = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {сountries
+          {countries
             .sort(getSortedItems(order, orderBy))
-            .map((country: any) => (
+            .map((country: Country) => (
               <TableRow key={country.name}>
                 <TableCell component="th" scope="row">
                   <Link
                     component={RouterLink}
-                    to={`/сountry?name=${country.name}`}
+                    to={`/country?name=${country.name}`}
                   >
                     {country.name}
                   </Link>

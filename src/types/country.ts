@@ -35,8 +35,8 @@ export interface Country {
   population: number;
   latlng: number[];
   demonym: string;
-  area?: number;
-  gini?: number;
+  area: number | null;
+  gini: number | null;
   timezones: string[];
   borders: string[];
   nativeName: string;
@@ -47,5 +47,5 @@ export interface Country {
   flag: string;
   regionalBlocs: RegionalBloc[];
   cioc: string;
-  density: number;
+  density?: number;
 }

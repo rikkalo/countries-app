@@ -13,7 +13,7 @@ const RegionsPage: React.FC = () => {
       <List>
         {regions.map(region => (
           <ListItem key={region}>
-            <Link component={RouterLink} to={`/сountries?region=${region}`}>
+            <Link component={RouterLink} to={`/countries?region=${region}`}>
               <Typography variant="h5" component="h2">
                 {region}
               </Typography>

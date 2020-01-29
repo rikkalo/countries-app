@@ -6,7 +6,7 @@ import { Flag } from "../Flag";
 import styles from "./style.module.css";
 
 interface Props {
-  сountry: Country;
+  country: Country;
 }
 
 interface Item {
@@ -42,17 +42,17 @@ const items = [
 ] as Item[];
 
 export const CountryCommonInfo: React.FC<Props> = props => {
-  const { сountry } = props;
+  const { country } = props;
 
   return (
     <Grid container spacing={3}>
       <Grid item md={12} xs={12}>
         <Typography variant="h3" component="h3">
-          {сountry.name}
+          {country.name}
         </Typography>
       </Grid>
       <Grid item md={6} xs={12}>
-        {сountry.flag && <Flag value={сountry.flag} />}
+        {country.flag && <Flag value={country.flag} />}
       </Grid>
       <Grid item md={6} xs={12}>
         <div>
@@ -65,7 +65,7 @@ export const CountryCommonInfo: React.FC<Props> = props => {
             Top level domain:
           </Typography>
           <Typography variant="subtitle2" component="span">
-            {сountry.topLevelDomain[0]}
+            {country.topLevelDomain[0]}
           </Typography>
         </div>
         <div>
@@ -78,12 +78,12 @@ export const CountryCommonInfo: React.FC<Props> = props => {
             Coordinates:
           </Typography>
           <Typography variant="subtitle2" component="span">
-            {сountry.latlng[0]}, {сountry.latlng[1]}
+            {country.latlng[0]}, {country.latlng[1]}
           </Typography>
         </div>
 
         {items
-          .filter(item => сountry && сountry[item.field])
+          .filter(item => country && country[item.field])
           .map(item => (
             <div key={item.title}>
               <Typography
@@ -94,7 +94,7 @@ export const CountryCommonInfo: React.FC<Props> = props => {
                 {item.title}:
               </Typography>
               <Typography variant="subtitle2" component="span">
-                {сountry[item.field]}
+                {country[item.field]}
               </Typography>
             </div>
           ))}

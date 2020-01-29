@@ -10,7 +10,7 @@ import { Country } from "../../types/country";
 
 const CountriesPage: React.FC = () => {
   const { search } = useLocation<string>();
-  const [сountries, setCountries] = useState<Country[]>([]);
+  const [countries, setCountries] = useState<Country[]>([]);
   const [error, setErrorResponse] = useState<string | null>(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const CountriesPage: React.FC = () => {
           <Typography variant="h2" component="h2">
             Countries
           </Typography>
-          <CountriesTable сountries={сountries} />
+          <CountriesTable countries={countries} />
         </Container>
       )}
     </>

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoToMain should render correctly 1`] = `
+<WithStyles(ForwardRef(Container))
+  maxWidth="sm"
+>
+  <WithStyles(ForwardRef(Typography))
+    component="h3"
+    variant="h3"
+  >
+    <Link
+      to="/"
+    >
+      Go to the main page
+    </Link>
+  </WithStyles(ForwardRef(Typography))>
+</WithStyles(ForwardRef(Container))>
+`;

@@ -12,10 +12,10 @@ const App: React.FC = () => {
         <Route exact path="/">
           <RegionsPage />
         </Route>
-        <Route path="/сountries">
+        <Route path="/countries">
           <CountriesPage />
         </Route>
-        <Route path="/сountry">
+        <Route path="/country">
           <CountryPage />
         </Route>
         <Route path="*">404</Route>
